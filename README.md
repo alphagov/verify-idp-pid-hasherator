@@ -1,2 +1,3 @@
 # verify-idp-pid-hasherator
-Hash event PIDs from IDP reports for reconciliation
+
+Standalone app to hash event PIDs in the same way the event emitter does.
