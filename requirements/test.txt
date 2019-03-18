@@ -1,1 +1,2 @@
 -r prod.txt
+pytest==4.3.1
