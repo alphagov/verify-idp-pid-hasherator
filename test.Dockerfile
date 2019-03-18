@@ -7,6 +7,7 @@ RUN pip3 install -r requirements/test.txt
 
 COPY src src
 COPY tests tests
+COPY .flake8 .flake8
 
 ENTRYPOINT ["python3", "-m"]
 CMD ["pytest", "tests/unit"]
