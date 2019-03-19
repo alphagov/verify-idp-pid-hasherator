@@ -9,8 +9,8 @@ HASHED_PID_FILE_SUFFIX = '_hpids'
 
 def process_input(input_path):
     headers, rows = csv.read(input_path)
-    # TODO: setup the CSV settings
     csv_settings = CsvSettings()
+    csv_settings.next_csv(headers)
     add_hashed_pids(rows, csv_settings)
     output_path = generate_destination(input_path)
     output_headers = headers[:]
