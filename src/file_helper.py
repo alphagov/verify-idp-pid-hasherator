@@ -1,4 +1,7 @@
 import os
+import logging
+
+logger = logging.getLogger(__name__)
 
 
 def exists(path):
@@ -15,9 +18,11 @@ def extension_matches(path, extension):
 
 
 def find_all_with_extension(path, extension):
+    logger.debug(f'Searching "{path}" for files with extension "{extension}"')
     if not exists(path):
         return []
     files = []
     if extension_matches(path, extension):
         files.append(path)
+    logger.debug(f'Discovered the following matching files: {files}')
     return files
