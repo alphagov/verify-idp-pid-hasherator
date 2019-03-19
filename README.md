@@ -12,6 +12,24 @@ For example:
 ./ha.sh run path/to/csv1.csv path/to/csv2.csv ...
 ```
 
+## Build
+
+To build this repo and produce a single executable binary, run the control script's `build` task.
+
+```
+./ha.sh build
+```
+
+This will produce an executable in the `dist` folder of the repo.
+(This also configures a virtual environment in the `venv` folder, and leaves build intermediaries in the `build` folder.)
+The output binary can be executed in a similar way to the run helper above.
+(Remember to specify the CSV file paths.)
+For example:
+
+```
+./dist/main path/to/csv.csv
+```
+
 ## Tests
 
 ### Unit Tests

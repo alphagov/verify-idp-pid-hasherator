@@ -1,7 +1,20 @@
 
+function build {
+    local_setup
+    pyinstaller --onefile src/main.py
+}
+
 function lint {
     docker build -f test.Dockerfile -t hasherator_test . &&
     docker run --rm hasherator_test flake8 .
+}
+
+function local_setup {
+    python3 -m venv venv &&
+    . venv/bin/activate &&
+    python3 -m pip install --upgrade pip &&
+    pip3 install -r requirements/test.txt &&
+    pip3 install -r requirements/build.txt
 }
 
 function run {
@@ -14,6 +27,9 @@ function test {
 }
 
 case $1 in
+    build)
+        build
+        ;;
     lint)
         lint
         ;;

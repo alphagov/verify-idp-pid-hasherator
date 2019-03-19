@@ -2,3 +2,7 @@
 
 # Stuff not needed by docker context
 .git
+build
+dist
+main.spec
+venv
