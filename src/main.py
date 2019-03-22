@@ -10,8 +10,8 @@ def parse_arguments():
     parser = argparse.ArgumentParser()
     parser.add_argument('-v', '--verbose', help='Verbose mode.', action='store_true')
     parser.add_argument(
-        'csv', nargs='+',
-        help='Path to a CSV file. At least one must be specified.', type=str)
+        'csv', nargs='+', type=str,
+        help='Filepath. Either a CSV file or a directory containing them. At least one path must be specified.')
     return parser.parse_args()
 
 

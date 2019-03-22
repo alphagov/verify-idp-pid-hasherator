@@ -8,6 +8,10 @@ def exists(path):
     return os.path.exists(path)
 
 
+def is_directory(path):
+    return os.path.isdir(path)
+
+
 def file_extension(path):
     _, extension = os.path.splitext(path)
     return extension
@@ -31,11 +35,16 @@ def find_files_under_directory_with_extension(root, extension):
 
 
 def find_all_with_extension(path, extension):
-    logger.debug(f'Searching "{path}" for files with extension "{extension}"')
     if not exists(path):
+        logger.debug(f'Specified path "{path}" does not exist.')
         return []
-    files = []
-    if extension_matches(path, extension):
-        files.append(path)
+    logger.debug(f'Searching "{path}" for files with extension "{extension}"')
+    if is_directory(path):
+        files = find_files_under_directory_with_extension(path, extension)
+    else:
+        logger.debug(f'File path provided: "{path}"')
+        files = []
+        if extension_matches(path, extension):
+            files = [path]
     logger.debug(f'Discovered the following matching files: {files}')
     return files

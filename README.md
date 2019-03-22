@@ -16,8 +16,10 @@ However, **the order does matter**.
 
 ## Running the Hasher
 
-The control script's `run` argument can be passed a number of CSV files to hash PIDs in.
-The script will parse the headers in the CSV and interactively prompt you to choose the PID column, and either a column for the IDP ID or to supply it directly.
+The control script's `run` argument can be passed a number of paths.
+Paths should either be CSV files to hash PIDs in, or directories containing such CSVs.
+In the latter case, the filesystem will be walked to discover `.csv` files.
+The script will parse the headers in any discovered CSVs and interactively prompt you to choose the PID column, and either a column for the IDP ID or to supply it directly.
 For example:
 
 ```
